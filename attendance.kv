@@ -1,0 +1,86 @@
+#:kivy 1.10.1
+
+Attendance:
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Smart Attendance"
+            elevation: 12
+            md_bg_color: app.theme_cls.primary_color
+
+        MDBottomNavigation:
+            elevation: 12
+            panel_color: 211/255, 211/255, 211/255, 0.7
+
+            MDBottomNavigationItem:
+                text: "Home"
+                name: "home_screen"
+                icon: "home"
+
+                FloatLayout:
+                    orientation: 'vertical'
+                    padding: 30
+                    spacing: dp(100)
+
+                    MDFloatingActionButton:
+                        id: 'mc'
+                        icon: "microphone-outline"
+                        md_bg_color: app.theme_cls.primary_color
+                        user_font_size: '54sp'
+                        elevation_normal: 12
+                        on_press: root.startApp()
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+
+                    MDRectangleFlatButton:
+                        text: 'SET'
+                        pos_hint: {'right': 0.57, 'top': 0.67}
+                        on_press:
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_x: 0.5
+                        size_hint_y: 0.1
+                        pos_hint: {'right': 0.85, 'top': 0.8}
+
+                        MDTextField:
+                            id: cls
+                            text: ''
+                            hint_text: "Class"
+                            helper_text: "Class Name must be in Roman"
+                            helper_text_mode: "on_focus"
+                            required: True
+                            mx_text_length: 4
+                            icon_right: ''
+                            size_hint_x: None
+                            width: 200
+
+            MDBottomNavigationItem:
+                text: "Database"
+                name: "database_screen"
+                icon: "database"
+
+                FloatLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: "Database"
+                        font_style: "H2"
+                        pos_hint: {'right': 1.30, 'top': 1.3}
+                    MDRoundFlatButton:
+                        text: "Go to Database"
+                        font_size: '25sp'
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                        on_press: root.viewDatabase()
+
+            MDBottomNavigationItem:
+                text: "Settings"
+                name: "settings_screen"
+                icon: "settings"
+
+                FloatLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'App Version: 1.0'
+                        font_style: 'H6'
+                        theme_text_color: "Custom"
+                        text_color: 203/255, 53/255, 91/255, 1
+                        pos_hint: {'center_x': 0.87, 'center_y': 0.1}
